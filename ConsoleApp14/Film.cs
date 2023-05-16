@@ -13,32 +13,32 @@ namespace ConsoleApp14
         fiting,
         detective
     }
-    internal class Film
+    internal class Film : IDisposable
     {
         //поля класса
         public Genre genre { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public int duration { get; set; }
-        public int issue { get; set; }
+        public StringBuilder name { get; set; }
+        public StringBuilder description { get; set; }
+        public StringBuilder duration { get; set; }
+        public StringBuilder issue { get; set; }
         //конструктор
         public Film() 
         {
             genre = Genre.comedia;
-            name = "Fatal Error";
-            description = "Nice film";
-            duration = 1;
-            issue = 1924;
+            name = new StringBuilder("Fatal Error");
+            description = new StringBuilder("Nice film");
+            duration = new StringBuilder("1 hour");
+            issue = new StringBuilder(1984);
             Console.WriteLine("generate class");
         }
         //деструктор
-        ~Film() 
+        public void Dispose() 
         {
             genre = default;
-            name = default;
-            description = default;
-            duration = default;
-            issue = default;
+            name.Clear();
+            description.Clear();
+            duration.Clear();
+            issue.Clear();
         }
         //вивід
         public void show()

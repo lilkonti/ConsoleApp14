@@ -10,21 +10,21 @@ namespace ConsoleApp14
     {
         //поля класса
         public Genre genre { get; set; }
-        public string name { get; set; }
-        public string theatre { get; set; }
-        public int duration { get; set; }
-        public string[] actors = new string[5];
+        public StringBuilder name { get; set; }
+        public StringBuilder theatre { get; set; }
+        public StringBuilder duration { get; set; }
+        public StringBuilder[] actors = new StringBuilder[5];
         //конструктор
         public Theatre()
         {
             genre = Genre.comedia;
-            name = "Fatal Error";
-            theatre = "Nice theatre";
-            duration = 1;
+            name = new StringBuilder("Fatal Error");
+            theatre = new StringBuilder("Nice theatre");
+            duration = new StringBuilder(1);
 
             for (int i = 0; i < 5; i++)
             {
-                actors[i] = "actor" + Convert.ToString(i);
+                actors[i] = new StringBuilder("actor" + Convert.ToString(i));
             }
 
             Console.WriteLine("generate class");
@@ -33,10 +33,10 @@ namespace ConsoleApp14
         public void Dispose()
         {
             genre = default;
-            name = default;
-            theatre = default;
-            duration = default;
-            actors = default;
+            name.Clear();
+            theatre.Clear();
+            duration.Clear();
+            actors.Clear();
         }
         //вивід
         public void show()
