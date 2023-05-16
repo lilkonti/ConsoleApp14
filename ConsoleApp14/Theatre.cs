@@ -13,7 +13,7 @@ namespace ConsoleApp14
         public StringBuilder name { get; set; }
         public StringBuilder theatre { get; set; }
         public StringBuilder duration { get; set; }
-        public StringBuilder[] actors = new StringBuilder[5];
+        public List<string>actors = new List<string>();
         //конструктор
         public Theatre()
         {
@@ -24,7 +24,7 @@ namespace ConsoleApp14
 
             for (int i = 0; i < 5; i++)
             {
-                actors[i] = new StringBuilder("actor" + Convert.ToString(i));
+                actors.Add("actor" + Convert.ToString(i));
             }
 
             Console.WriteLine("generate class");
@@ -44,9 +44,9 @@ namespace ConsoleApp14
             Console.WriteLine(name + " it's a " + theatre + "show");
             Console.WriteLine("genre is " + genre + " and his duration - " + duration);
             Console.WriteLine();
-            for (int i = 0;i < actors.Length;i++)
+            foreach (var actor in actors)
             {
-                Console.WriteLine("actor: " + actors[i]);
+                Console.WriteLine("actor: " + actor);
             }
         }
     }
